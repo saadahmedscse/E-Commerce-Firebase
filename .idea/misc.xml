@@ -8,6 +8,7 @@
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/bg_dark_grey_5.xml" value="0.1" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/bg_green_10.xml" value="0.1" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/bg_white_5.xml" value="0.1" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/circle_white.xml" value="0.1" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/stroke_light_grey_10.xml" value="0.1" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/stroke_light_grey_5.xml" value="0.1455" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/activity_authentication.xml" value="0.209375" />
@@ -20,6 +21,7 @@
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_profile.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_sign_up.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_cateogry.xml" value="0.25" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_product.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/nav_header.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/menu/drawer_menu.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
