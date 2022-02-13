@@ -11,7 +11,7 @@ import androidx.navigation.Navigation
 import com.caffeine.ecommercefirebase.R
 import com.caffeine.ecommercefirebase.databinding.FragmentSignUpBinding
 import com.caffeine.ecommercefirebase.helper.AlertDialog
-import com.caffeine.ecommercefirebase.util.Task
+import com.caffeine.ecommercefirebase.util.DataState
 import com.caffeine.ecommercefirebase.view.activities.DashboardActivity
 import com.caffeine.ecommercefirebase.viewmodel.AuthViewModel
 
@@ -34,13 +34,13 @@ class SignUpFragment : Fragment() {
 
         authViewModel.userMutableLiveData.observe(viewLifecycleOwner) {
             when(it){
-                is Task.Loading -> {
+                is DataState.Loading -> {
                     binding.authBtn.visibility = View.GONE
                     binding.progressBar.visibility = View.VISIBLE
                     //loading
                 }
 
-                is Task.Success -> {
+                is DataState.Success -> {
                     binding.authBtn.visibility = View.VISIBLE
                     binding.progressBar.visibility = View.GONE
 
@@ -49,7 +49,7 @@ class SignUpFragment : Fragment() {
                     //success
                 }
 
-                is Task.Failed -> {
+                is DataState.Failed -> {
                     binding.authBtn.visibility = View.VISIBLE
                     binding.progressBar.visibility = View.GONE
                     AlertDialog.getInstance(requireContext()).showAlertDialog(it.message!!, "Close")

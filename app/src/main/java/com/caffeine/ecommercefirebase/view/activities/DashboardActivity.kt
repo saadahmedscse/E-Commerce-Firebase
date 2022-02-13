@@ -31,38 +31,6 @@ class DashboardActivity : AppCompatActivity() {
         navController = findNavController(R.id.fragmentContainerView2)
         NavigationUI.setupWithNavController(binding.navView, navController)
 
-        /*
-        val variants = ArrayList<Sizes>()
-        variants.add(Sizes("S"))
-        variants.add(Sizes("XL"))
-        variants.add(Sizes("M"))
-        variants.add(Sizes("L"))
-        val colors = ArrayList<Colors>()
-        colors.add(Colors("Blue"))
-        colors.add(Colors("Red"))
-        colors.add(Colors("White"))
-        colors.add(Colors("Black"))
-        val images = ArrayList<Images>()
-        images.add(Images("https://static-01.daraz.com.bd/p/f4032e107d55a0373973cc19cb7baa29.jpg"))
-        images.add(Images("https://static-01.daraz.com.bd/p/0e554c431bfb49b1857e32b1fc67bd55.jpg"))
-        val id = System.currentTimeMillis().toString()
-        val cat = "Winter"
-        val product = ProductDetails(
-            id,
-            "Name",
-            "500",
-            cat,
-            variants,
-            colors,
-            images,
-            "210",
-            "1000",
-            "Product description",
-            "314")
-
-        Constants.reference.child("Products").child(cat).child(id).setValue(product)
-         */
-
         binding.backBtn.setOnClickListener{
             if (binding.pageTitle.text.toString() != "Home"){
                 onBackPressed()

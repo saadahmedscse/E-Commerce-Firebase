@@ -4,5 +4,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 object Constants {
-    val reference : DatabaseReference = FirebaseDatabase.getInstance().reference.child("Rengvo")
+    const val appName = "Rengvo"
+    val reference : DatabaseReference = FirebaseDatabase.getInstance().reference.child(appName)
 }
