@@ -1,6 +1,7 @@
 package com.caffeine.ecommercefirebase.services.repository
 
 import androidx.lifecycle.MutableLiveData
+import com.caffeine.ecommercefirebase.services.model.ProductDetails
 import com.caffeine.ecommercefirebase.util.Constants
 import com.caffeine.ecommercefirebase.util.Task
 import com.google.firebase.database.DataSnapshot
@@ -24,6 +25,49 @@ class ProductRepo : ProductInterface {
 
             override fun onCancelled(error: DatabaseError) {
                 categoryMutableLiveData.postValue(Task.Failed(error.message))
+            }
+
+        })
+    }
+
+    override suspend fun getCategorizedProducts(
+        category: String,
+        categorizedProductsMutableLiveData: MutableLiveData<Task<List<ProductDetails>>>
+    ) {
+        categorizedProductsMutableLiveData.postValue(Task.Loading())
+
+        val tempList = ArrayList<ProductDetails>()
+        Constants.reference.child("Products").child(category).addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (ds in snapshot.children){
+                    ds.getValue(ProductDetails::class.java)?.let { tempList.add(it) }
+                }
+                categorizedProductsMutableLiveData.postValue(Task.Success(tempList))
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                categorizedProductsMutableLiveData.postValue(Task.Failed(error.message))
+            }
+
+        })
+    }
+
+    override suspend fun getAllProducts(allProducts: MutableLiveData<Task<List<ProductDetails>>>) {
+        allProducts.postValue(Task.Loading())
+
+        val tempList = ArrayList<ProductDetails>()
+        Constants.reference.child("Products").addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (ds in snapshot.children){
+                    for (sds in ds.children){
+                        sds.getValue(ProductDetails::class.java)?.let { tempList.add(it) }
+                    }
+                }
+                allProducts.postValue(Task.Success(tempList))
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                allProducts.postValue(Task.Failed(error.message))
             }
 
         })
