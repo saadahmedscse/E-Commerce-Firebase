@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.caffeine.ecommercefirebase.services.model.CartModel
 import com.caffeine.ecommercefirebase.services.model.ProductDetails
 import com.caffeine.ecommercefirebase.services.repository.ProductRepo
 import com.caffeine.ecommercefirebase.util.DataState
@@ -26,6 +27,10 @@ class ProductViewModel : ViewModel() {
     val allProducts : LiveData<DataState<List<ProductDetails>>>
         get() = _allProducts
 
+    private val _carts = MutableLiveData<DataState<List<CartModel>>>()
+    val carts : LiveData<DataState<List<CartModel>>>
+        get() = _carts
+
     fun getCategories(){
         viewModelScope.launch(Dispatchers.IO) {
             repository.getCategory(_categoryMutableLiveData)
@@ -42,5 +47,9 @@ class ProductViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getAllProducts(_allProducts)
         }
+    }
+
+    fun addToCart(cart : CartModel){
+        repository.addToCart(cart, _carts)
     }
 }

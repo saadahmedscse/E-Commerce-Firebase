@@ -1,6 +1,7 @@
 package com.caffeine.ecommercefirebase.services.repository
 
 import androidx.lifecycle.MutableLiveData
+import com.caffeine.ecommercefirebase.services.model.CartModel
 import com.caffeine.ecommercefirebase.services.model.ProductDetails
 import com.caffeine.ecommercefirebase.util.Constants
 import com.caffeine.ecommercefirebase.util.DataState
@@ -73,5 +74,22 @@ class ProductRepo : ProductInterface {
             }
 
         })
+    }
+
+    override fun addToCart(cart: CartModel, carts: MutableLiveData<DataState<List<CartModel>>>) {
+        carts.postValue(DataState.Loading())
+        Constants.reference
+            .child("Carts")
+            .child(Constants.UID!!)
+            .child(cart.id!!)
+            .setValue(cart)
+            .addOnCompleteListener{ task ->
+                if (task.isSuccessful){
+                    carts.postValue(DataState.Success())
+                }
+                else{
+                    carts.postValue(DataState.Failed(task.exception?.message))
+                }
+            }
     }
 }

@@ -5,9 +5,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.caffeine.ecommercefirebase.databinding.ItemLayoutProductBinding
 import com.caffeine.ecommercefirebase.services.model.ProductDetails
+import com.caffeine.ecommercefirebase.view.fragments.HomeFragmentDirections
 import com.squareup.picasso.Picasso
 
 class ProductAdapter(val context: Context, val list: ArrayList<ProductDetails>) : RecyclerView.Adapter<ProductAdapter.ViewHolder>(){
@@ -25,7 +27,8 @@ class ProductAdapter(val context: Context, val list: ArrayList<ProductDetails>) 
         holder.price.text = "৳" + product.price
 
         holder.root.setOnClickListener{
-            Toast.makeText(context, "id: ${product.id}", Toast.LENGTH_SHORT).show()
+            val action = HomeFragmentDirections.homeToDetails(product)
+            Navigation.findNavController(it).navigate(action)
         }
     }
 

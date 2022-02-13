@@ -21,10 +21,22 @@
         android:id="@+id/detailsFragment"
         android:name="com.caffeine.ecommercefirebase.view.fragments.DetailsFragment"
         android:label="Details"
-        tools:layout="@layout/fragment_details" />
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="product"
+            app:argType="com.caffeine.ecommercefirebase.services.model.ProductDetails" />
+        <action
+            android:id="@+id/details_to_cart"
+            app:destination="@id/cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.caffeine.ecommercefirebase.view.fragments.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.caffeine.ecommercefirebase.view.fragments.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
 </navigation>
