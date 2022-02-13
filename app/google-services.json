@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1041440974765",
+    "project_id": "rengvo-86fc1",
+    "storage_bucket": "rengvo-86fc1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041440974765:android:9b2804e6e9f04fdd9d6324",
+        "android_client_info": {
+          "package_name": "com.caffeine.ecommercefirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041440974765-a09fi77v06ieuedrdtb8evfac1q5qfv7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeMQ_PlTH0WxUnpi1xKCEJlbXtqF1zJHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041440974765-a09fi77v06ieuedrdtb8evfac1q5qfv7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
