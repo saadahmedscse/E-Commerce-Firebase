@@ -17,13 +17,17 @@
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/activity_main.xml" value="0.1953125" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/alert_dialog.xml" value="0.209375" />
-        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_details.xml" value="0.1953125" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_cart.xml" value="0.209375" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_details.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_profile.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_sign_up.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_cateogry.xml" value="0.25" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_colors.xml" value="0.209375" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_images.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_product.xml" value="0.25" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_sizes.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/nav_header.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/shimmer_category.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/shimmer_products.xml" value="0.25" />

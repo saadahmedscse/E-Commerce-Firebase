@@ -6,11 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.caffeine.ecommercefirebase.databinding.FragmentHomeBinding
 import com.caffeine.ecommercefirebase.helper.AlertDialog
 import com.caffeine.ecommercefirebase.services.model.ProductDetails
+import com.caffeine.ecommercefirebase.util.Constants
 import com.caffeine.ecommercefirebase.util.DataState
 import com.caffeine.ecommercefirebase.view.activities.DashboardActivity
 import com.caffeine.ecommercefirebase.view.adapter.CategoryAdapter
@@ -33,17 +32,11 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        val categoryLayoutManager = getLayoutManager()
-        val popularLayoutManager = getLayoutManager()
-        val menLayoutManager = getLayoutManager()
-        val womenLayoutManager = getLayoutManager()
-        val childLayoutManager = getLayoutManager()
-
-        binding.categoryRecyclerView.layoutManager = categoryLayoutManager
-        binding.popularRecyclerView.layoutManager = popularLayoutManager
-        binding.menRecyclerView.layoutManager = menLayoutManager
-        binding.womenRecyclerView.layoutManager = womenLayoutManager
-        binding.childRecyclerView.layoutManager = childLayoutManager
+        binding.categoryRecyclerView.layoutManager = Constants.getHorizontalLayout(requireContext())
+        binding.popularRecyclerView.layoutManager = Constants.getHorizontalLayout(requireContext())
+        binding.menRecyclerView.layoutManager = Constants.getHorizontalLayout(requireContext())
+        binding.womenRecyclerView.layoutManager = Constants.getHorizontalLayout(requireContext())
+        binding.childRecyclerView.layoutManager = Constants.getHorizontalLayout(requireContext())
 
         productDetails = ArrayList()
         ForMen = ArrayList()
@@ -97,10 +90,6 @@ class HomeFragment : Fragment() {
         super.onResume()
 
         (activity as DashboardActivity).setActionBarTitle("Home")
-    }
-
-    private fun getLayoutManager(): LinearLayoutManager {
-        return LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setAdapters() {
