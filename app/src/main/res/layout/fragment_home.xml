@@ -77,12 +77,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/size_15"
                 android:layout_marginEnd="@dimen/size_15"
-                android:layout_marginTop="@dimen/size_15">
+                android:layout_marginTop="@dimen/size_25">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bold"
+                    android:layout_centerVertical="true"
                     android:text="Popular"
                     android:textColor="@color/colorLightGrey"
                     android:textSize="@dimen/semi_medium_text" />
@@ -105,53 +106,19 @@
                 android:id="@+id/popular_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_10"/>
+                android:layout_marginTop="@dimen/size_5"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/size_15"
                 android:layout_marginEnd="@dimen/size_15"
-                android:layout_marginTop="@dimen/size_15">
+                android:layout_marginTop="@dimen/size_25">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/bold"
-                    android:textSize="@dimen/semi_medium_text"
-                    android:textColor="@color/colorLightGrey"
-                    android:text="For You"/>
-
-                <TextView
-                    android:id="@+id/see_all_for_you"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginTop="@dimen/size_15"
-                    android:fontFamily="@font/regular"
-                    android:text="See all"
-                    android:textColor="@color/colorGreen"
-                    android:textSize="@dimen/smaller_text" />
-
-            </RelativeLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/for_you_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_10"/>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/size_15"
-                android:layout_marginEnd="@dimen/size_15"
-                android:layout_marginTop="@dimen/size_15">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:fontFamily="@font/bold"
                     android:textSize="@dimen/semi_medium_text"
                     android:textColor="@color/colorLightGrey"
@@ -175,18 +142,19 @@
                 android:id="@+id/men_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_10"/>
+                android:layout_marginTop="@dimen/size_5"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/size_15"
                 android:layout_marginEnd="@dimen/size_15"
-                android:layout_marginTop="@dimen/size_15">
+                android:layout_marginTop="@dimen/size_25">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:fontFamily="@font/bold"
                     android:textSize="@dimen/semi_medium_text"
                     android:textColor="@color/colorLightGrey"
@@ -210,7 +178,44 @@
                 android:id="@+id/women_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_10"/>
+                android:layout_marginTop="@dimen/size_5"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/size_15"
+                android:layout_marginEnd="@dimen/size_15"
+                android:layout_marginTop="@dimen/size_25">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/bold"
+                    android:text="Child"
+                    android:textColor="@color/colorLightGrey"
+                    android:textSize="@dimen/semi_medium_text" />
+
+                <TextView
+                    android:id="@+id/see_all_child"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/size_15"
+                    android:fontFamily="@font/regular"
+                    android:text="See all"
+                    android:textColor="@color/colorGreen"
+                    android:textSize="@dimen/smaller_text" />
+
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/child_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/size_15"
+                android:layout_marginTop="@dimen/size_5"/>
 
         </LinearLayout>
 

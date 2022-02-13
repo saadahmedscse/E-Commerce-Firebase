@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/size_15"
+    android:padding="1dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_dark_grey_5">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/image_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/size_5">
+
+        <ImageView
+            android:id="@+id/product_image"
+            android:layout_width="match_parent"
+            android:layout_height="185dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_green_5"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:layout_width="@dimen/size_40"
+        android:layout_height="@dimen/size_40"
+        android:background="@drawable/circle_white"
+        android:src="@drawable/fav_border"
+        app:tint="@color/colorLightRed" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/size_10"
+        android:layout_below="@id/image_holder"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/product_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorWhite"
+            android:fontFamily="@font/bold"
+            android:textSize="@dimen/normal_text"
+            android:text="This is a product name"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/product_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5"
+            android:textColor="@color/colorLightGrey"
+            android:fontFamily="@font/regular"
+            android:textSize="@dimen/smaller_text"
+            android:text="This is a product desc"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/product_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_5"
+            android:textColor="@color/colorGreen"
+            android:fontFamily="@font/bold"
+            android:textSize="@dimen/small_text"
+            android:text="$550"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
