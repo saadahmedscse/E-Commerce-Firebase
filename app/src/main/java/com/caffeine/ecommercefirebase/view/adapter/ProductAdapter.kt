@@ -1,5 +1,6 @@
 package com.caffeine.ecommercefirebase.view.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,14 +16,15 @@ class ProductAdapter(val context: Context, val list: ArrayList<ProductDetails>) 
         return ViewHolder(ItemLayoutProductBinding.inflate(LayoutInflater.from(context), parent, false))
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val product = list[position]
         Picasso.get().load(product.images?.get(0)?.url).into(holder.image)
         holder.title.text = product.name
         holder.desc.text = product.desc
-        holder.price.text = "$" + product.price
+        holder.price.text = "৳" + product.price
 
-        holder.image.setOnClickListener{
+        holder.root.setOnClickListener{
             Toast.makeText(context, "id: ${product.id}", Toast.LENGTH_SHORT).show()
         }
     }
@@ -32,6 +34,7 @@ class ProductAdapter(val context: Context, val list: ArrayList<ProductDetails>) 
     }
 
     class ViewHolder(binding : ItemLayoutProductBinding) : RecyclerView.ViewHolder(binding.root){
+        val root = binding.rootLayout
         val image = binding.productImage
         val title = binding.productTitle
         val desc = binding.productDesc
