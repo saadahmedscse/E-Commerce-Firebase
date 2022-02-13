@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.caffeine.ecommercefirebase.services.model.ProductDetails
 import com.caffeine.ecommercefirebase.services.repository.ProductRepo
-import com.caffeine.ecommercefirebase.util.Task
+import com.caffeine.ecommercefirebase.util.DataState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -14,16 +14,16 @@ class ProductViewModel : ViewModel() {
 
     private val repository : ProductRepo = ProductRepo()
 
-    private val _categoryMutableLiveData = MutableLiveData<Task<List<String>>>()
-    val categoryLiveData : LiveData<Task<List<String>>>
+    private val _categoryMutableLiveData = MutableLiveData<DataState<List<String>>>()
+    val categoryLiveData : LiveData<DataState<List<String>>>
         get() = _categoryMutableLiveData
 
-    private val _categorizedProductsMutableLiveData = MutableLiveData<Task<List<ProductDetails>>>()
-    val categorizedProductsMutableLiveData : LiveData<Task<List<ProductDetails>>>
+    private val _categorizedProductsMutableLiveData = MutableLiveData<DataState<List<ProductDetails>>>()
+    val categorizedProductsMutableLiveData : LiveData<DataState<List<ProductDetails>>>
         get() = _categorizedProductsMutableLiveData
 
-    private val _allProducts = MutableLiveData<Task<List<ProductDetails>>>()
-    val allProducts : LiveData<Task<List<ProductDetails>>>
+    private val _allProducts = MutableLiveData<DataState<List<ProductDetails>>>()
+    val allProducts : LiveData<DataState<List<ProductDetails>>>
         get() = _allProducts
 
     fun getCategories(){
