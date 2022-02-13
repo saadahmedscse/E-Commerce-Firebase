@@ -36,11 +36,20 @@
                 android:textColor="@color/colorLightGrey"
                 android:text="Fashion is all about beauty"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/category_recycler_view"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_15"/>
+                android:layout_marginTop="@dimen/size_15">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/category_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <include android:id="@+id/shimmer_category"
+                    layout="@layout/shimmer_category"/>
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/search"
@@ -102,11 +111,20 @@
 
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/popular_recycler_view"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_5"/>
+                android:layout_marginTop="@dimen/size_5">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/popular_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <include android:id="@+id/shimmer_popular"
+                    layout="@layout/shimmer_products"/>
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -138,11 +156,20 @@
 
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/men_recycler_view"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_5"/>
+                android:layout_marginTop="@dimen/size_5">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/men_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <include android:id="@+id/shimmer_men"
+                    layout="@layout/shimmer_products"/>
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -174,11 +201,20 @@
 
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/women_recycler_view"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_5"/>
+                android:layout_marginTop="@dimen/size_5">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/women_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <include android:id="@+id/shimmer_women"
+                    layout="@layout/shimmer_products"/>
+
+            </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -210,12 +246,21 @@
 
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/child_recycler_view"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/size_15"
-                android:layout_marginTop="@dimen/size_5"/>
+                android:layout_marginTop="@dimen/size_5">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/child_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <include android:id="@+id/shimmer_child"
+                    layout="@layout/shimmer_products"/>
+
+            </RelativeLayout>
 
         </LinearLayout>
 

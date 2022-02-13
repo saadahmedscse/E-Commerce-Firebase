@@ -5,15 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.caffeine.ecommercefirebase.R
 import com.caffeine.ecommercefirebase.databinding.FragmentHomeBinding
+import com.caffeine.ecommercefirebase.helper.AlertDialog
 import com.caffeine.ecommercefirebase.services.model.ProductDetails
-import com.caffeine.ecommercefirebase.util.Task
+import com.caffeine.ecommercefirebase.util.DataState
 import com.caffeine.ecommercefirebase.view.activities.DashboardActivity
 import com.caffeine.ecommercefirebase.view.adapter.CategoryAdapter
 import com.caffeine.ecommercefirebase.view.adapter.ProductAdapter
@@ -54,35 +52,41 @@ class HomeFragment : Fragment() {
         Popular = ArrayList()
 
         productViewModel.getCategories()
-        productViewModel.categoryLiveData.observe(viewLifecycleOwner, Observer {
-            when (it) {
-                is Task.Loading -> {
-                    //loading
-                }
+        productViewModel.categoryLiveData.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is DataState.Loading -> {}
 
-                is Task.Success -> {
-                    //success
-                    val categoryAdapter = CategoryAdapter(it.data as ArrayList<String>)
+                is DataState.Success -> {
+                    val categoryAdapter = CategoryAdapter(state.data as ArrayList<String>)
                     binding.categoryRecyclerView.adapter = categoryAdapter
+
+                    binding.shimmerCategory.root.visibility = View.GONE
                 }
 
-                is Task.Failed -> {
-                    //failed
+                is DataState.Failed -> {
+                    AlertDialog.getInstance(requireContext()).showAlertDialog(state.message!!, "Close")
                 }
             }
-        })
+        }
 
         productViewModel.getAllProducts()
-        productViewModel.allProducts.observe(viewLifecycleOwner) {
-            when (it) {
-                is Task.Loading -> {}
+        productViewModel.allProducts.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is DataState.Loading -> {}
 
-                is Task.Success -> {
-                    productDetails = it.data as ArrayList<ProductDetails>
+                is DataState.Success -> {
+                    productDetails = state.data as ArrayList<ProductDetails>
                     setAdapters()
+
+                    binding.shimmerPopular.root.visibility = View.GONE
+                    binding.shimmerMen.root.visibility = View.GONE
+                    binding.shimmerWomen.root.visibility = View.GONE
+                    binding.shimmerChild.root.visibility = View.GONE
                 }
 
-                is Task.Failed -> {}
+                is DataState.Failed -> {
+                    AlertDialog.getInstance(requireContext()).showAlertDialog(state.message!!, "Close")
+                }
             }
         }
 
@@ -95,25 +99,25 @@ class HomeFragment : Fragment() {
         (activity as DashboardActivity).setActionBarTitle("Home")
     }
 
-    private fun getLayoutManager() : LinearLayoutManager{
+    private fun getLayoutManager(): LinearLayoutManager {
         return LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
     }
 
     private fun setAdapters() {
-        for (obj in productDetails){
-            if (obj.category == "For Men"){
+        for (obj in productDetails) {
+            if (obj.category == "For Men") {
                 ForMen.add(obj)
             }
 
-            if (obj.category == "For Women"){
+            if (obj.category == "For Women") {
                 ForWomen.add(obj)
             }
 
-            if (obj.category == "For Child"){
+            if (obj.category == "For Child") {
                 ForChild.add(obj)
             }
 
-            if (obj.category == "Summer"){
+            if (obj.category == "Summer") {
                 Popular.add(obj)
             }
         }
