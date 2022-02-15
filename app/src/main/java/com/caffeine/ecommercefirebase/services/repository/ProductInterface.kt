@@ -9,7 +9,15 @@ interface ProductInterface {
 
     suspend fun getCategory(categoryMutableLiveData : MutableLiveData<DataState<List<String>>>)
 
-    suspend fun getCategorizedProducts(category : String, categorizedProductsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>)
+    suspend fun getMenProducts(category : String, productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>)
+
+    suspend fun getWomenProducts(category : String, productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>)
+
+    suspend fun getChildProducts(category : String, productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>)
+
+    suspend fun getPopularProducts(productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>)
+
+    suspend fun getCategorizedProducts(category : String, productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>)
 
     suspend fun getAllProducts(allProducts: MutableLiveData<DataState<List<ProductDetails>>>)
 

@@ -31,11 +31,36 @@ class ProductRepo : ProductInterface {
         })
     }
 
+    override suspend fun getMenProducts(
+        category: String,
+        productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>
+    ) {
+        getCategorizedProducts(category, productsMutableLiveData)
+    }
+
+    override suspend fun getWomenProducts(
+        category: String,
+        productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>
+    ) {
+        getCategorizedProducts(category, productsMutableLiveData)
+    }
+
+    override suspend fun getChildProducts(
+        category: String,
+        productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>
+    ) {
+        getCategorizedProducts(category, productsMutableLiveData)
+    }
+
+    override suspend fun getPopularProducts(productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>) {
+        //getCategorizedProducts(category, productsMutableLiveData)
+    }
+
     override suspend fun getCategorizedProducts(
         category: String,
-        categorizedProductsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>
+        productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>
     ) {
-        categorizedProductsMutableLiveData.postValue(DataState.Loading())
+        productsMutableLiveData.postValue(DataState.Loading())
 
         val tempList = ArrayList<ProductDetails>()
         Constants.reference.child("Products").child(category).addValueEventListener(object : ValueEventListener{
@@ -44,11 +69,11 @@ class ProductRepo : ProductInterface {
                 for (ds in snapshot.children){
                     ds.getValue(ProductDetails::class.java)?.let { tempList.add(it) }
                 }
-                categorizedProductsMutableLiveData.postValue(DataState.Success(tempList))
+                productsMutableLiveData.postValue(DataState.Success(tempList))
             }
 
             override fun onCancelled(error: DatabaseError) {
-                categorizedProductsMutableLiveData.postValue(DataState.Failed(error.message))
+                productsMutableLiveData.postValue(DataState.Failed(error.message))
             }
 
         })

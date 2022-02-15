@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.caffeine.ecommercefirebase.services.model.CartModel
 import com.caffeine.ecommercefirebase.services.model.ProductDetails
 import com.caffeine.ecommercefirebase.services.repository.ProductRepo
+import com.caffeine.ecommercefirebase.util.Constants
 import com.caffeine.ecommercefirebase.util.DataState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,11 +20,23 @@ class ProductViewModel : ViewModel() {
     val categoryLiveData : LiveData<DataState<List<String>>>
         get() = _categoryMutableLiveData
 
-    private val _categorizedProductsMutableLiveData = MutableLiveData<DataState<List<ProductDetails>>>()
-    val categorizedProductsMutableLiveData : LiveData<DataState<List<ProductDetails>>>
-        get() = _categorizedProductsMutableLiveData
+    private val _menProductMutableLiveData = Constants.getMutableDataStateListOfProductDetails()
+    val menProductMutableLiveData : LiveData<DataState<List<ProductDetails>>>
+        get() = _menProductMutableLiveData
 
-    private val _allProducts = MutableLiveData<DataState<List<ProductDetails>>>()
+    private val _womenProductMutableLiveData = Constants.getMutableDataStateListOfProductDetails()
+    val womenProductMutableLiveData : LiveData<DataState<List<ProductDetails>>>
+        get() = _womenProductMutableLiveData
+
+    private val _childProductMutableLiveData = Constants.getMutableDataStateListOfProductDetails()
+    val childProductMutableLiveData : LiveData<DataState<List<ProductDetails>>>
+        get() = _childProductMutableLiveData
+
+    private val _popularProductMutableLiveData = Constants.getMutableDataStateListOfProductDetails()
+    val popularProductMutableLiveData : LiveData<DataState<List<ProductDetails>>>
+        get() = _popularProductMutableLiveData
+
+    private val _allProducts = Constants.getMutableDataStateListOfProductDetails()
     val allProducts : LiveData<DataState<List<ProductDetails>>>
         get() = _allProducts
 
@@ -37,9 +50,21 @@ class ProductViewModel : ViewModel() {
         }
     }
 
-    fun getCategorizedProducts(category : String){
+    fun getMenProducts(category: String){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getCategorizedProducts(category, _categorizedProductsMutableLiveData)
+            repository.getMenProducts(category, _menProductMutableLiveData)
+        }
+    }
+
+    fun getWomenProducts(category: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getWomenProducts(category, _womenProductMutableLiveData)
+        }
+    }
+
+    fun getChildProducts(category: String){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getChildProducts(category, _childProductMutableLiveData)
         }
     }
 

@@ -20,11 +20,6 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private val productViewModel: ProductViewModel by viewModels()
-    private lateinit var productDetails: ArrayList<ProductDetails>
-    private lateinit var ForMen: ArrayList<ProductDetails>
-    private lateinit var ForWomen: ArrayList<ProductDetails>
-    private lateinit var ForChild: ArrayList<ProductDetails>
-    private lateinit var Popular: ArrayList<ProductDetails>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,12 +32,6 @@ class HomeFragment : Fragment() {
         binding.menRecyclerView.layoutManager = Constants.getHorizontalLayout(requireContext())
         binding.womenRecyclerView.layoutManager = Constants.getHorizontalLayout(requireContext())
         binding.childRecyclerView.layoutManager = Constants.getHorizontalLayout(requireContext())
-
-        productDetails = ArrayList()
-        ForMen = ArrayList()
-        ForWomen = ArrayList()
-        ForChild = ArrayList()
-        Popular = ArrayList()
 
         productViewModel.getCategories()
         productViewModel.categoryLiveData.observe(viewLifecycleOwner) { state ->
@@ -62,23 +51,67 @@ class HomeFragment : Fragment() {
             }
         }
 
-        productViewModel.getAllProducts()
-        productViewModel.allProducts.observe(viewLifecycleOwner) { state ->
-            when (state) {
+        productViewModel.getMenProducts("For Men")
+        productViewModel.getWomenProducts("For Women")
+        productViewModel.getChildProducts("For Child")
+
+        productViewModel.menProductMutableLiveData.observe(viewLifecycleOwner) {
+            when (it) {
                 is DataState.Loading -> {}
 
                 is DataState.Success -> {
-                    productDetails = state.data as ArrayList<ProductDetails>
-                    setAdapters()
+                    val adapter = ProductAdapter(requireContext(), it.data as ArrayList<ProductDetails>)
+                    binding.menRecyclerView.adapter = adapter
+                    binding.popularRecyclerView.adapter = adapter
 
                     binding.shimmerPopular.root.visibility = View.GONE
                     binding.shimmerMen.root.visibility = View.GONE
+                    //binding.shimmerWomen.root.visibility = View.GONE
+                    //binding.shimmerChild.root.visibility = View.GONE
+                }
+
+                is DataState.Failed -> {
+                    AlertDialog.getInstance(requireContext()).showAlertDialog(it.message!!, "Close")
+                }
+            }
+        }
+
+        productViewModel.womenProductMutableLiveData.observe(viewLifecycleOwner) {
+            when (it) {
+                is DataState.Loading -> {}
+
+                is DataState.Success -> {
+                    val adapter = ProductAdapter(requireContext(), it.data as ArrayList<ProductDetails>)
+                    binding.womenRecyclerView.adapter = adapter
+
+                    //binding.shimmerPopular.root.visibility = View.GONE
+                    //binding.shimmerMen.root.visibility = View.GONE
                     binding.shimmerWomen.root.visibility = View.GONE
+                    //binding.shimmerChild.root.visibility = View.GONE
+                }
+
+                is DataState.Failed -> {
+                    AlertDialog.getInstance(requireContext()).showAlertDialog(it.message!!, "Close")
+                }
+            }
+        }
+
+        productViewModel.childProductMutableLiveData.observe(viewLifecycleOwner) {
+            when (it) {
+                is DataState.Loading -> {}
+
+                is DataState.Success -> {
+                    val adapter = ProductAdapter(requireContext(), it.data as ArrayList<ProductDetails>)
+                    binding.childRecyclerView.adapter = adapter
+
+                    //binding.shimmerPopular.root.visibility = View.GONE
+                    //binding.shimmerMen.root.visibility = View.GONE
+                    //binding.shimmerWomen.root.visibility = View.GONE
                     binding.shimmerChild.root.visibility = View.GONE
                 }
 
                 is DataState.Failed -> {
-                    AlertDialog.getInstance(requireContext()).showAlertDialog(state.message!!, "Close")
+                    AlertDialog.getInstance(requireContext()).showAlertDialog(it.message!!, "Close")
                 }
             }
         }
@@ -90,37 +123,5 @@ class HomeFragment : Fragment() {
         super.onResume()
 
         (activity as DashboardActivity).setActionBarTitle("Home")
-    }
-
-    private fun setAdapters() {
-        for (obj in productDetails) {
-            if (obj.category == "For Men") {
-                ForMen.add(obj)
-            }
-
-            if (obj.category == "For Women") {
-                ForWomen.add(obj)
-            }
-
-            if (obj.category == "For Child") {
-                ForChild.add(obj)
-            }
-
-            if (obj.category == "Summer") {
-                Popular.add(obj)
-            }
-        }
-
-        val menAdapter = ProductAdapter(requireContext(), ForMen)
-        binding.menRecyclerView.adapter = menAdapter
-
-        val womenAdapter = ProductAdapter(requireContext(), ForWomen)
-        binding.womenRecyclerView.adapter = womenAdapter
-
-        val childAdapter = ProductAdapter(requireContext(), ForChild)
-        binding.childRecyclerView.adapter = childAdapter
-
-        val popularAdapter = ProductAdapter(requireContext(), Popular)
-        binding.popularRecyclerView.adapter = popularAdapter
     }
 }
