@@ -2,6 +2,7 @@ package com.caffeine.ecommercefirebase.view.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -95,24 +96,23 @@ class DetailsFragment() : Fragment(), OnSizeClick, OnColorClick {
                 size
             )
             productViewModel.addToCart(cart)
-        }
 
-        productViewModel.carts.observe(viewLifecycleOwner) { state ->
-            when(state){
-                is DataState.Loading -> {
-                    binding.textAddToCart.visibility = View.INVISIBLE
-                    binding.progressBar.visibility = View.VISIBLE
-                }
+            productViewModel.carts.observe(viewLifecycleOwner) { state ->
+                when(state){
+                    is DataState.Loading -> {
+                        binding.textAddToCart.visibility = View.INVISIBLE
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
 
-                is DataState.Success -> {
-                    Toast.makeText(requireContext(), "Product added to your cart", Toast.LENGTH_LONG).show()
-                    binding.textAddToCart.visibility = View.VISIBLE
-                    binding.progressBar.visibility = View.GONE
-                    Navigation.findNavController(binding.root).navigate(R.id.details_to_cart)
-                }
+                    is DataState.Success -> {
+                        binding.textAddToCart.visibility = View.VISIBLE
+                        binding.progressBar.visibility = View.GONE
+                        Navigation.findNavController(binding.root).navigate(R.id.details_to_cart)
+                    }
 
-                is DataState.Failed -> {
-                    AlertDialog.getInstance(requireContext()).showAlertDialog(state.message!!, "Close")
+                    is DataState.Failed -> {
+                        AlertDialog.getInstance(requireContext()).showAlertDialog(state.message!!, "Close")
+                    }
                 }
             }
         }
