@@ -100,21 +100,4 @@ class ProductRepo : ProductInterface {
 
         })
     }
-
-    override fun addToCart(cart: CartModel, carts: MutableLiveData<DataState<List<CartModel>>>) {
-        carts.postValue(DataState.Loading())
-        Constants.reference
-            .child("Carts")
-            .child(Constants.UID!!)
-            .child(cart.id!!)
-            .setValue(cart)
-            .addOnCompleteListener{ task ->
-                if (task.isSuccessful){
-                    carts.postValue(DataState.Success())
-                }
-                else{
-                    carts.postValue(DataState.Failed(task.exception?.message))
-                }
-            }
-    }
 }

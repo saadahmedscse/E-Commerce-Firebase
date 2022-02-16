@@ -20,6 +20,4 @@ interface ProductInterface {
     suspend fun getCategorizedProducts(category : String, productsMutableLiveData: MutableLiveData<DataState<List<ProductDetails>>>)
 
     suspend fun getAllProducts(allProducts: MutableLiveData<DataState<List<ProductDetails>>>)
-
-    fun addToCart(cart : CartModel , carts : MutableLiveData<DataState<List<CartModel>>>)
 }
