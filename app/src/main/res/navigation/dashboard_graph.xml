@@ -16,6 +16,9 @@
         <action
             android:id="@+id/home_to_profile"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/home_to_cart"
+            app:destination="@id/cartFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -33,7 +36,11 @@
         android:id="@+id/profileFragment"
         android:name="com.caffeine.ecommercefirebase.view.fragments.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/profile_to_cart"
+            app:destination="@id/cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.caffeine.ecommercefirebase.view.fragments.CartFragment"

@@ -23,6 +23,7 @@ import com.caffeine.ecommercefirebase.view.activities.DashboardActivity
 import com.caffeine.ecommercefirebase.view.adapter.ColorAdapter
 import com.caffeine.ecommercefirebase.view.adapter.ImageAdapter
 import com.caffeine.ecommercefirebase.view.adapter.SizeAdapter
+import com.caffeine.ecommercefirebase.viewmodel.CartViewModel
 import com.caffeine.ecommercefirebase.viewmodel.ProductViewModel
 import com.squareup.picasso.Picasso
 
@@ -30,6 +31,7 @@ class DetailsFragment() : Fragment(), OnSizeClick, OnColorClick {
 
     private lateinit var binding: FragmentDetailsBinding
     private val productViewModel: ProductViewModel by viewModels()
+    private val cartViewModel: CartViewModel by viewModels()
     private val product by navArgs<DetailsFragmentArgs>()
 
     private var size : String? = null
@@ -88,6 +90,7 @@ class DetailsFragment() : Fragment(), OnSizeClick, OnColorClick {
         binding.btnAddToCart.setOnClickListener{
             val cart = CartModel(
                 product.product.id,
+                product.product.images!![0].url!!,
                 product.product.name,
                 currentPrice.toString(),
                 product.product.category,
@@ -95,9 +98,9 @@ class DetailsFragment() : Fragment(), OnSizeClick, OnColorClick {
                 color,
                 size
             )
-            productViewModel.addToCart(cart)
+            cartViewModel.addToCart(cart)
 
-            productViewModel.carts.observe(viewLifecycleOwner) { state ->
+            cartViewModel.addCarts.observe(viewLifecycleOwner) { state ->
                 when(state){
                     is DataState.Loading -> {
                         binding.textAddToCart.visibility = View.INVISIBLE
