@@ -10,19 +10,21 @@
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/bg_green_10.xml" value="0.1" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/bg_grey_5.xml" value="0.1" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/bg_white_5.xml" value="0.1" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/circle_red.xml" value="0.1485" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/circle_white.xml" value="0.1" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/stroke_light_grey_10.xml" value="0.1" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/drawable/stroke_light_grey_5.xml" value="0.1455" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/activity_authentication.xml" value="0.209375" />
-        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/activity_dashboard.xml" value="0.22" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/activity_main.xml" value="0.1953125" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/alert_dialog.xml" value="0.209375" />
-        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_cart.xml" value="0.209375" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_cart.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_details.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_profile.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/fragment_sign_up.xml" value="0.209375" />
+        <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_cart.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_cateogry.xml" value="0.25" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_colors.xml" value="0.209375" />
         <entry key="..\:/Documents/Android Studio Kotlin Projects/ECommerceFirebase/app/src/main/res/layout/item_layout_images.xml" value="0.209375" />
